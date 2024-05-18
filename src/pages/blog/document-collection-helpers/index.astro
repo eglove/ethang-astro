@@ -1,0 +1,66 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import {codeHighlight} from "../../../util/code-highlight";
+
+
+
+const first = await codeHighlight(`const links = document.links; // HTMLCollection(4) [a, a, a, a]
+links.namedItem('GitHub').href; // https://github.com/eglove
+links.item(3).href; // https://www.linkedin.com/in/ethan-glover/`);
+
+const second = await codeHighlight(`for (let sheet of document.styleSheets) {
+    if (sheet.title === 'PicoCSS') {
+        console.log(sheet.href); // https://cdn.jsdelivr.net/npm/@picocss/pico@latest/css/pico.slate.min.css
+        break;
+    }
+}`);
+---
+
+<Layout title="A Few Document Collection Helpers" description="Some helpers on the document object that I didn't know existed.">
+    <main>
+        <article>
+            <header><h1>A Few Document Collection Helpers</h1></header>
+            <p>
+                Here are a few document helper methods I never heard about until
+                recently:
+            </p>
+            <ul>
+                <li>
+                    <b>document.links:</b> Returns a collection of all
+                    <code>&lt;area&gt;</code> and <code>&lt;a&gt;</code> elements with a
+                    value in the <code>href</code> attribute.
+                </li>
+                <li>
+                    <b>document.styleSheets:</b> Returns a StyleSheetList of all
+                    stylesheets linked to or embedded in a document.
+                </li>
+                <li>
+                    <b>document.forms:</b> Returns an HTMLCollection of all the
+                    <code>&lt;form&gt;</code> elements in a document.
+                </li>
+                <li>
+                    <b>document.scripts:</b> Returns an HTMLCollection of all the
+                    <code>&lt;script&gt;</code> elements in a document.
+                </li>
+                <li>
+                    <b>document.images:</b> Returns a collection of all the images in an
+                    HTML document.
+                </li>
+            </ul>
+            <p>
+                Conveniently, all of these except styleSheets return an
+                HTMLCollection. Which has two important methods, item() which you can
+                use to query by index. And namedItem(), which will find the element by
+                ID, or as a fallback, the name attribute.
+            </p>
+            <Fragment set:html={first}></Fragment>
+            <p>
+                Of course, StyleSheetList does not have a named item method, so you're
+                stuck with having to determine which is which by looping over the
+                stylesheets and using something like a title attribute.
+            </p>
+            <Fragment set:html={second}></Fragment>
+        </article>
+    </main>
+</Layout>
+

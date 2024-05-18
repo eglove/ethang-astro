@@ -1,0 +1,101 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import {codeHighlight} from "../../../util/code-highlight";
+
+const code = await codeHighlight(`self.addEventListener("fetch", onFetch);
+
+function onFetch(event) {
+  event.respondWith(router(event.request));
+}
+
+async function router(request) {
+  const url = new URL(request.url);
+  const requestUrl = url.pathname;
+  const cache = await caches.open(cacheName);
+
+  if (url.origin === location.origin && request.method === "GET") {
+    let response;
+
+    try {
+      response = await cache.match(requestUrl);
+
+      if (response) {
+        return response;
+      }
+    } catch (error) {}
+
+    const fetchOptions = {
+      method: request.method,
+      headers: request.headers,
+      credentials: "omit",
+      cache: "no-store",
+    };
+
+    response = await fetch(requestUrl, fetchOptions);
+
+    if (response && response.ok) {
+      await cache.put(requestUrl, response.clone());
+      return response;
+    }
+  }
+
+  return fetch(request);
+}`)
+---
+
+<Layout title="Service Worker Caching" description="Using service workers instead of SPA navigation">
+    <main>
+        <article>
+            <header>
+                <h1>Service Worker Caching</h1>
+            </header>
+            <p>
+                I've always been impressed by QwikCity and the way it makes use of
+                Service Workers to cache resources. The speed you get from it is
+                incomparable to other frameworks.
+            </p>
+            <p>
+                However, while it is the only one I know of that uses service worker
+                caching out of the box. It turns out this is very easy to implement
+                with vanilla JS.
+            </p>
+            <p>
+                Service workers have a simple fetch event that allow you to listen to
+                all incoming requests which is the perfect place to make use of
+                <a
+                        target="_blank"
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Cache"
+                >Cache API</a
+                >. This interception in a service worker would look like this:
+            </p>
+            <Fragment set:html={code} />
+            <p>
+                This looks like a lot of code, but the idea is very simple. With all
+                GET requests that match the current domain origin, try to find the
+                cached response in Cache API. Otherwise, fetch it from the server.
+            </p>
+            <p>
+                The results are very fast navigations with server rendered HTML. As
+                you navigate this site, which now uses this service worker, load times
+                feel near instant. But there is no SPA, only the above code. Plus it
+                has the added benefit of making previously visited pages available
+                offline.
+            </p>
+            <p>
+                You can find this code in its entirety in the
+                <a
+                        target="_blank"
+                        href="https://github.com/eglove/ethang-web/blob/main/src/cache-init.mjs"
+                >initialization script</a
+                >
+                and the actual
+                <a
+                        target="_blank"
+                        href="https://github.com/eglove/ethang-web/blob/main/src/cache.js"
+                >worker script</a
+                >.
+            </p>
+        </article>
+    </main>
+</Layout>
+

@@ -1,0 +1,588 @@
+---
+import { DateTime } from "luxon";
+import Layout from '../../layouts/Layout.astro';
+
+const timezone = 'America/Chicago';
+const startDate = DateTime.fromObject({year: 2018, month: 11}).setZone(timezone)
+const now = DateTime.now().setZone(timezone);
+const diff = now.diff(startDate, 'years');
+const formatter = Intl.NumberFormat('en-US', {
+    style: 'unit',
+    unit: 'year',
+    maximumFractionDigits: 2,
+}).format;
+---
+
+<Layout title="EthanG" description="Recommended courses for learning development.">
+    <main>
+        <article>
+            <header><h1>Recommended Courses</h1></header>
+            <p>
+                I have been maintaining this list of courses for {formatter(diff.years)}. It's meant as a way to provide a straightforward curriculum of what
+                you need to learn for development. It's updated constantly, but at any
+                given point in time, I believe this is the best way to get started
+                with, and learn everything you need to know to work with the web and
+                beyond.
+            </p>
+            <p>
+                These courses will take a while to get through, so I do recommend
+                signing up for Pro accounts instead of buying one-time courses. So in
+                the beginner section, check out Udemy Pro. Keep going with Udemy Pro
+                for Academind's courses. Once you're through those, cancel it, move on
+                to AlgoExpert, and so on. In the final section, I quickly mention the
+                subscriptions I think are worth keeping in the long term.
+            </p>
+
+            <details>
+                <summary>Beginner: Colt Steele</summary>
+                <p>
+                    I believe Colt Steele is the most beginner-friendly instructor out
+                    there. He's interesting, knowledgeable, and approaches topics in an
+                    easy-to-digest way. Colt Steele has brought his developer bootcamp
+                    to Udemy and continues to update it every year with modern
+                    technology.
+                </p>
+                <p>
+                    <a target="_blank" href="https://www.udemy.com/user/coltsteele/">
+                        Colt Steele courses
+                    </a>
+                </p>
+                <p>
+                    Take as many of his courses as you like, but at a minimum, I highly
+                    recommend taking these:
+                </p>
+                <ul class="NumberedList">
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.udemy.com/course/html-and-css-bootcamp/learn/"
+                        >
+                            The HTML & CSS Bootcamp
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.udemy.com/course/the-web-developer-bootcamp/learn/"
+                        >
+                            The Web Developer Bootcamp
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.udemy.com/course/git-and-github-bootcamp/"
+                        >
+                            The Git & GitHub Bootcamp
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.udemy.com/course/the-linux-command-line-bootcamp/"
+                        >
+                            The Linux Command Line Bootcamp
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.udemy.com/course/pro-javascript/"
+                        >
+                            JavaScript Pro: Mastering Advanced Concepts and Techniques
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.udemy.com/course/learn-typescript/"
+                        >
+                            Mastering TypeScript
+                        </a>
+                    </li>
+                </ul>
+            </details>
+            <details>
+                <summary>Learn to Build: Academind</summary>
+                <p>
+                    Academind has long been a great source for following along with
+                    projects for multiple frameworks. Which is an excellent way to get
+                    an introduction to all of a frameworks features.
+                </p>
+                <p>
+                    Academind has its own paid subscription, but most, if not all, the
+                    courses are also available on Udemy. I recommend these courses at a
+                    minimum, but take as many as you like:
+                </p>
+                <p>
+                    <a target="_blank" href="https://academind.com/">Academind</a>
+                </p>
+                <ul class="NumberedList">
+                    <li>
+                        <a target="_blank" href="https://pro.academind.com/p/clean-code">
+                            Clean Code
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/javascript-datastructures-the-fundamentals"
+                        >
+                            JavaScript Data Structures
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/javascript-algorithms-the-fundamentals"
+                        >
+                            JavaScript Algorithms
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/javascript-the-tricky-parts"
+                        >
+                            JavaScript The Tricky Parts
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/javascript-unit-testing-the-practical-guide"
+                        >
+                            JavaScript Unit Testing
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/github-actions-the-complete-guide"
+                        >
+                            GitHub Actions
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/nodejs-the-complete-guide-incl-mvc-rest-apis-graphql"
+                        >
+                            NodeJS
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/deno-the-complete-introduction"
+                        >
+                            Deno
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/mongodb-the-complete-developer-s-guide-2020"
+                        >
+                            Mongo
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/sql-the-complete-guide-mysql-postgresql-more"
+                        >
+                            SQL
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/react-the-complete-guide-course"
+                        >
+                            React
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/react-typescript-the-practical-guide"
+                        >
+                            React & TypeScript
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/react-nodejs-express-mongodb-the-mern-fullstack-guide"
+                        >
+                            MERN
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/react-native-the-practical-guide-2022-new"
+                        >
+                            React Native
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/ionic-react-build-cross-platform-apps-web-android-ios"
+                        >
+                            Ionic + React
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/nextjs-react-the-complete-guide"
+                        >
+                            Next.js 14 & React
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/remix-js-the-practical-guide"
+                        >
+                            Remix
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/angular-the-complete-guide"
+                        >
+                            Angular
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/angular-nodejs-the-mean-stack-guide-2020-edition"
+                        >
+                            MEAN
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/ionic-build-ios-android-web-apps-with-ionic-angular"
+                        >
+                            Ionic + Angular
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/vue-3-the-complete-guide"
+                        >
+                            Vue
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/nuxt-js-vue-js-on-steroids"
+                        >
+                            Nuxt
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/svelte-js-the-complete-guide"
+                        >
+                            Svelte
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/progressive-web-apps-pwa-the-complete-guide"
+                        >
+                            PWA
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/docker-kubernetes-the-practical-guide"
+                        >
+                            Docker & Kubernetes
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/aws-cloud-practitioner-clf-c01-complete-aws-introduction"
+                        >
+                            AWS Cloud Practitioner
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/aws-serverless-apis-apps-a-complete-introduction"
+                        >
+                            AWS Serverless APIs & Apps
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/go-the-complete-guide"
+                        >
+                            Go
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/htmx-the-practical-guide"
+                        >
+                            HTMX
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/flutter-the-complete-guide-2023"
+                        >
+                            Flutter & Dart
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/python-the-practical-guide"
+                        >
+                            Python
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/python-django-the-practical-guide"
+                        >
+                            Django
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/microsoft-power-bi-the-practical-guide"
+                        >
+                            Microsoft Power BI
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://pro.academind.com/p/tableau-desktop-2020-a-complete-introduction"
+                        >
+                            Tableau Desktop
+                        </a>
+                    </li>
+                </ul>
+            </details>
+            <details>
+                <summary>Learn the Web: Frontend Masters</summary>
+                <p>
+                    Frontend Masters has world-class instructors leading lecture style
+                    workshops on just about everything.
+                </p>
+                <p>
+                    I recommend simply just following the learning paths, even the
+                    beginner and professional paths that will feel below your skill
+                    level at this point. There is still a lot of good to pick up.
+                    However, I would avoid the framework courses (React/Angular/Vue).
+                    Frontend Masters and its community is notably anti-framework. This
+                    isn't the place you want to learn about industry tooling. But their
+                    deep dives into vanilla tech will make you a better user of
+                    frameworks.
+                </p>
+                <p>
+                    <a target="_blank" href="https://frontendmasters.com/learn/">
+                        Frontend Masters
+                    </a>
+                </p>
+                <ul class="NumberedList">
+                    <li>
+                        <a
+                                href="https://frontendmasters.com/learn/beginner/"
+                                target="_blank"
+                        >Beginner Path</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                href="https://frontendmasters.com/learn/professional/"
+                                target="_blank"
+                        >Professional Path</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                href="https://frontendmasters.com/learn/advanced/"
+                                target="_blank"
+                        >Expert Path</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                href="https://frontendmasters.com/learn/javascript/"
+                                target="_blank"
+                        >JavaScript Path</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                href="https://frontendmasters.com/learn/browser-apis/"
+                                target="_blank"
+                        >Browser APIs Path</a
+                        >
+                    </li>
+                </ul>
+            </details>
+            <details>
+                <summary>Learn Algorithms: AlgoExpert</summary>
+                <p>
+                    AlgoExpert is a great way to learn complex algorithms, the site
+                    includes video explanations and walkthroughs for every problem. This
+                    gets seriously difficult very quickly. But it's worth getting
+                    through.
+                </p>
+                <p>
+                    This does NOT include other AlgoExpert products like SystemsExpert,
+                    Frontend Expert, etc.
+                </p>
+                <p>
+                    <a target="_blank" href="https://www.algoexpert.io/product"
+                    >AlgoExpert</a
+                    >
+                </p>
+                <ul class="NumberedList">
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.algoexpert.io/interview-tips"
+                        >
+                            Interview Tips
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.algoexpert.io/data-structures"
+                        >
+                            Data Structures Crash Course
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.algoexpert.io/questions">
+                            Coding Interview Questions
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.algoexpert.io/assessments">
+                            Coding Interview Assessments
+                        </a>
+                    </li>
+                </ul>
+            </details>
+            <details>
+                <summary>Reading</summary>
+                <p>
+                    I always recommend keeping up to date with recently published books
+                    in the field. Here are my recommended publishers and authors:
+                </p>
+                <ul class="NumberedList">
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.amazon.com/stores/page/5212CE9B-CF76-4343-9CA0-98210EBE3D70"
+                        >
+                            O'Reilly
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.amazon.com/stores/page/CE115F00-6246-4FD9-B2C0-85BD5D7310B6"
+                        >
+                            Packt
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.amazon.com/stores/David-Farley/author/B003VSTZ72"
+                        >
+                            Dave Farley
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                                target="_blank"
+                                href="https://www.amazon.com/stores/author/B000APG87E"
+                        >
+                            Robert C. Martin
+                        </a>
+                    </li>
+                </ul>
+            </details>
+            <details>
+                <summary>Continuing on Resources</summary>
+                <p>
+                    At this point, I just recommend keeping up with what you're
+                    interested in and what you find. I continue to update this list, but
+                    most people will develop their own path before they make it through
+                    all the above resources anyway.
+                </p>
+                <p>
+                    So for a final section, I just want to summarize a list of resources
+                    worth keeping up to date on.
+                </p>
+                <ul>
+                    <li>
+                        <b>
+                            <a target="_blank" href="https://www.udemy.com/">Udemy:</a>
+                        </b>
+                        Great for mostly project-based courses to get a quick run down on
+                        building something with new technologies. This is probably not
+                        worth a long-term subscription, but there's plenty of courses
+                        worth buying on the one-time cost.
+                    </li>
+                    <li>
+                        <b>
+                            <a target="_blank" href="https://www.algoexpert.io/purchase">
+                                *Expert All Access:
+                            </a>
+                        </b>
+                        Continuing AlgoExpert, it's worth checking about SystemsExpert,
+                        InfraExpert, and if you want it's other products. $17/mo
+                    </li>
+                    <li>
+                        <b>
+                            <a target="_blank" href="https://frontendmasters.com/">
+                                Frontend Masters:
+                            </a>
+                        </b>
+                        There are new workshops and courses all the time and these are all
+                        absolutely worth watching. $32/mo
+                    </li>
+                    <li>
+                        <b>Reading:</b> And keep reading. Keep finding books worth the
+                        one-time cost.
+                    </li>
+                    <li>Total Subscriptions: $49/mo</li>
+                </ul>
+            </details>
+        </article>
+    </main>
+</Layout>
+

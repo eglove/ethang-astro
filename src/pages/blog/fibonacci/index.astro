@@ -1,0 +1,113 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import {codeHighlight} from "../../../util/code-highlight";
+
+const code = await Promise.all([
+    codeHighlight(`worker = new Worker("./fibonacci-worker.mjs");`),
+    codeHighlight(`worker.addEventListener("message", onMessage);`),
+    codeHighlight(`worker.postMessage({ start: true });`)
+])
+---
+
+<script type="module">
+    let startStopBtn;
+    let fibsList;
+    let worker;
+    let startTime;
+    let stopTime;
+
+    document.addEventListener('DOMContentLoaded', ready)
+
+    async function ready() {
+        startStopBtn = document.querySelector("#start-stop-btn");
+        fibsList = document.querySelector("#fibs");
+        startStopBtn?.addEventListener("click", startFibs, false);
+
+    }
+
+    function renderFib(num, fib) {
+        const numberFormatter = Intl.NumberFormat("en-US", {
+            notation: "scientific",
+        });
+
+        const container = document.createElement("div");
+        container.innerText = `fib(${num}): ${numberFormatter.format(fib)}`;
+
+        if (fibsList && fibsList.childNodes.length > 0) {
+            fibsList.insertBefore(container, fibsList.childNodes[0]);
+        } else if (fibsList) {
+            fibsList.appendChild(container);
+        }
+    }
+
+    function startFibs() {
+        startTime = performance.now();
+
+        if (startStopBtn) {
+            startStopBtn.removeEventListener("click", startFibs, false);
+            startStopBtn.addEventListener("click", stopFibs, false);
+            startStopBtn.innerText = "Stop";
+        }
+
+        if (fibsList) {
+            fibsList.innerHTML = "";
+        }
+
+        worker = new Worker("/scripts/fibonacci-worker.mjs");
+        worker.addEventListener("message", onMessage);
+        worker.postMessage({ start: true });
+    }
+
+    function stopFibs() {
+        stopTime = performance.now();
+
+        if (startStopBtn) {
+            startStopBtn.removeEventListener("click", stopFibs, false);
+            startStopBtn.addEventListener("click", startFibs, false);
+            startStopBtn.innerText = "Start";
+        }
+
+        worker?.terminate();
+        worker = null;
+
+        const millisecondFormatter = new Intl.NumberFormat("en-US", {
+            style: "unit",
+            unit: "second",
+        });
+        /**
+         * @type {HTMLElement | null}
+         */
+        const runtimeElement = document.querySelector("#completed-in");
+
+        if (runtimeElement) {
+            runtimeElement.setAttribute("style", "");
+            runtimeElement.innerText = `Completed in: ${millisecondFormatter.format((stopTime - startTime) / 1000)}`;
+        }
+    }
+
+    function onMessage(event) {
+        renderFib(event.data.num, event.data.fib);
+    }
+</script>
+
+<Layout title="Fibonacci Web Worker" description="Getting fibonacci numbers with web workers.">
+    <main>
+        <article>
+            <header>
+                <h1>Fibonacci Web Worker</h1>
+            </header>
+            <p>
+                Experimenting with web workers on the native web is surprisingly easy.
+                You can get multithreaded JavaScript in just a few lines of code:
+            </p>
+            <Fragment set:html={code[0]} />
+            <Fragment set:html={code[1]} />
+            <Fragment set:html={code[2]} />
+            <p>Start calculating below:</p>
+            <button type="button" id="start-stop-btn">Start</button>
+            <p id="completed-in" style="display: none"></p>
+            <div id="fibs" style="max-height: 500px; overflow-y: scroll"></div>
+        </article>
+    </main>
+</Layout>
+

@@ -1,5 +1,4 @@
 ---
-import CacheInit from "./CacheInit.astro";
 type Props = {
     title: string;
     description: string;
@@ -9,6 +8,7 @@ import frontendMastersImage from '../images/frontend-masters-32x32.png'
 import credlyImage from '../images/credly.svg'
 import githubImage from '../images/github.svg'
 import linkedinImage from '../images/linkedin.svg'
+import Speculation from "./Speculation.astro";
 
 const {title, description} = Astro.props;
 ---
@@ -101,5 +101,5 @@ const {title, description} = Astro.props;
 </header>
 <slot/>
 </body>
-<CacheInit/>
+<Speculation/>
 </html>

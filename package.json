@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.7.0",
     "@prisma/client": "^5.14.0",
     "astro": "^4.8.6",
+    "astrojs-service-worker": "^2.0.0",
     "luxon": "^3.4.4",
     "prisma": "^5.14.0",
     "shiki": "^1.5.2",

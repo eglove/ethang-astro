@@ -1,7 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import {codeHighlight} from "../../../util/code-highlight";
-import blockRenderImage from './block-render.png'
+import blockRenderImage from './_block-render.png'
 
 const code = await Promise.all([
     codeHighlight(`const element = document.querySelector("#text");
@@ -83,7 +83,7 @@ testCache.put("https://jsonplaceholder.typicode.com/todos", response);`)
 
 <head>
     {/* @ts-ignore */}
-    <script async is:inline blocking="render">
+    <script async type="module" blocking="render">
         const element = document.querySelector("#todos");
         const request = new XMLHttpRequest();
         const contentLoadedElement = document.querySelector("#contentLoaded");

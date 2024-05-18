@@ -1,4 +1,5 @@
 ---
+import PicoCss from "./PicoCss.astro";
 type Props = {
     title: string;
     description: string;
@@ -22,11 +23,7 @@ const {title, description} = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
     <meta name="theme-color" content="#ffffff"/>
     <meta name="generator" content={Astro.generator}/>
-    <link
-            rel="stylesheet"
-            title="PicoCSS"
-            href="https://cdn.jsdelivr.net/npm/@picocss/pico@latest/css/pico.slate.min.css"
-    />
+    <PicoCss />
     <title>{title}</title>
 </head>
 

@@ -83,7 +83,7 @@ testCache.put("https://jsonplaceholder.typicode.com/todos", response);`)
 
 <head>
     {/* @ts-ignore */}
-    <script async type="module" blocking="render">
+    <script is:inline async type="module" blocking="render">
         const element = document.querySelector("#todos");
         const request = new XMLHttpRequest();
         const contentLoadedElement = document.querySelector("#contentLoaded");

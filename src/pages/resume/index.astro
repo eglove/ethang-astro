@@ -1,10 +1,22 @@
 ---
 import Head from "../../layouts/Head.astro";
-import SkillBars from "../../components/resume/SkillBars.astro";
 import ExperienceCard from "../../components/resume/ExperienceCard.astro";
 import PositionSummary from "../../components/resume/PositionSummary.astro";
 import Certifications from "../../components/resume/Certifications.astro";
 import ProjectSummary from "../../components/resume/ProjectSummary.astro";
+import { DateTime } from "luxon";
+
+const timezone = "America/Chicago";
+const startDate = DateTime.fromObject({ year: 2018, month: 11 }).setZone(
+  timezone,
+);
+const endDate = DateTime.fromObject({ year: 2024, month: 5 }).setZone(timezone);
+const diff = endDate.diff(startDate, "years");
+const formatter = Intl.NumberFormat("en-US", {
+  style: "unit",
+  unit: "year",
+  maximumFractionDigits: 2,
+}).format;
 ---
 
 <!doctype html>
@@ -22,23 +34,22 @@ import ProjectSummary from "../../components/resume/ProjectSummary.astro";
           <a href="https://ethang.dev"> https://ethang.dev</a>
         </p>
         <p>
-          Software engineer with experience across many different technologies.
-          I have been writing code and working with the web for most of my life.
-          I built my first website at around 9 years old, it was a green neon
-          background with 10 pictures of monkeys written in HTML/CSS. I&apos;ve
-          continued to learn through my life by getting into the
-          advantages/disadvantages of different perspectives like OOP,
-          functional programming, hybrid paradigms, test-driven development and
-          behavior-driven development. I am constantly working on side projects
-          and love jumping in and learning new things.
+          Software engineer with {formatter(diff.years)} experience across many different
+          technologies. I have been writing code and working with the web for most
+          of my life. I built my first website at around 9 years old, it was a green
+          neon background with 10 pictures of monkeys written in HTML/CSS. I&apos;ve
+          continued to learn through my life by getting into the advantages/disadvantages
+          of different perspectives like OOP, functional programming, hybrid paradigms,
+          test-driven development and behavior-driven development. I am constantly
+          working on side projects and love jumping in and learning new things.
         </p>
       </header>
-      <SkillBars />
+      <!--<SkillBars />-->
       <ExperienceCard
         startDate="Nov. 2018"
         endDate="May 2024"
         title="Software Contractor/Consultant"
-        position="_all"><PositionSummary /></ExperienceCard
+        ><PositionSummary /></ExperienceCard
       >
       <ExperienceCard title="Certifications">
         <Certifications />

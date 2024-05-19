@@ -1,3 +1,8 @@
+---
+import { positions } from "./utils/positions";
+import { formatTech } from "./utils/formatters";
+---
+
 <li>
   <b>LegrandAV, 11/23–05/24</b>: I led an upgrade from vanilla React and
   Sitecore to Next.js. The project had been at a standstill for 2 months due to
@@ -5,6 +10,12 @@
   redesign of the user dashboard. I encouraged the team to move away from
   outsourcing to markup services for frontend work and make use of accessible
   libraries such as NextUI.
+  <br />
+  <b>Tech Used:</b>
+  {formatTech(positions.legrandAv.techUsed)}
+  <br />
+  <b>Methodologies Used:</b>
+  {formatTech(positions.legrandAv.methodologiesUsed)}
 </li>
 <li>
   <b>St. Louis County, 06/23–08/23</b>: Introduced automated testing to legacy
@@ -17,12 +28,24 @@
   difficult to reproduce bugs. This means getting tests set up would require
   significant refactoring, even entire rewrites. This is why we pivoted to a
   focus on E2E as much as possible.
+  <br />
+  <b>Tech Used:</b>
+  {formatTech(positions.stLouisCounty.techUsed)}
+  <br />
+  <b>Methodologies Used:</b>
+  {formatTech(positions.stLouisCounty.methodologiesUsed)}
 </li>
 <li>
   <b>Proagrica, 12/22–05/23</b>: Worked with a highly dynamic farming dashboard
   for an international audience. Made use of Redux to manage complex state
   interactions and used time travel debugging to discover existing state, debug,
   and build new features.
+  <br />
+  <b>Tech Used:</b>
+  {formatTech(positions.proagrica.techUsed)}
+  <br />
+  <b>Methodologies Used:</b>
+  {formatTech(positions.proagrica.methodologiesUsed)}
 </li>
 <li>
   <b>EPA, 06/22–11/22</b> Helped rebuild Emissions Collection and Monitoring System
@@ -31,10 +54,22 @@
   was QA asking for us to slow down because our production was too fast and not revealing
   issues. This gave us time to produce more reproducible examples and help QA to
   ensure the highest quality possible.
+  <br />
+  <b>Tech Used:</b>
+  {formatTech(positions.epa.techUsed)}
+  <br />
+  <b>Methodologies Used:</b>
+  {formatTech(positions.epa.methodologiesUsed)}
 </li>
 <li>
   <b>8Base, 03/22–05/22</b>: Worked on a low-code platform for a startup for
   generating GraphQL APIs through a React-based user interface.
+  <br />
+  <b>Tech Used:</b>
+  {formatTech(positions.eightBase.techUsed)}
+  <br />
+  <b>Methodologies Used:</b>
+  {formatTech(positions.eightBase.methodologiesUsed)}
 </li>
 <li>
   <b>Avatara, 07/21–03/22</b>: Built a team collaboration app from scratch which
@@ -42,19 +77,43 @@
   file sharing and more. All with realtime notifications between users and teams
   provided by websockets and styled with CSS modules. I was by myself on this
   project tasked with bringing a general idea to life.
+  <br />
+  <b>Tech Used:</b>
+  {formatTech(positions.avatara.techUsed)}
+  <br />
+  <b>Methodologies Used:</b>
+  {formatTech(positions.avatara.methodologiesUsed)}
 </li>
 <li>
   <b>Proagrica, 01/21-07-21</b>: Worked with an application for delivering
   quotes and booking shipments for clients through multiple logistics carriers
   such as FedEx, UPS, and others.
+  <br />
+  <b>Tech Used:</b>
+  {formatTech(positions.proagrica.techUsed)}
+  <br />
+  <b>Methodologies Used:</b>
+  {formatTech(positions.proagrica.methodologiesUsed)}
 </li>
 <li>
   <b>CenturyLink, 05/20-12-20</b>: Redesigned customer dashboard with
   CenturyLink for users managing their accounts with vanilla JavaScript and CSS
   stylesheets. Maintained compatibility with Internet Explorer 11.
+  <br />
+  <b>Tech Used:</b>
+  {formatTech(positions.centuryLink.techUsed)}
+  <br />
+  <b>Methodologies Used:</b>
+  {formatTech(positions.centuryLink.methodologiesUsed)}
 </li>
 <li>
   <b>SEO Freelancing, 11/18–05/20</b>: Consulted with OneSpiritOneWorld.org, a
   non-profit working to end dog homelessness and abuse to improve SEO and page
   performance as well. Encouraged a heavier social media presence.
+  <br />
+  <b>Tech Used:</b>
+  {formatTech(positions.seoConsulting.techUsed)}
+  <br />
+  <b>Methodologies Used:</b>
+  {formatTech(positions.seoConsulting.methodologiesUsed)}
 </li>

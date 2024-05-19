@@ -1,10 +1,10 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import {codeHighlight} from "../../../util/code-highlight";
-import blockRenderImage from './_block-render.png'
+import Layout from "../../../layouts/Layout.astro";
+import { codeHighlight } from "../../../util/code-highlight";
+import blockRenderImage from "./_block-render.png";
 
 const code = await Promise.all([
-    codeHighlight(`const element = document.querySelector("#text");
+  codeHighlight(`const element = document.querySelector("#text");
 
 const request = new XMLHttpRequest();
 request.open("GET", "https://jsonplaceholder.typicode.com/todos", false);
@@ -16,7 +16,7 @@ json.products.forEach((item, index) => {
   div.innerHTML = item.title;
   element.append(div);
 });`),
-    codeHighlight(`const element = document.querySelector("#text");
+  codeHighlight(`const element = document.querySelector("#text");
 
 const response = await fetch("GET", "https://jsonplaceholder.typicode.com/todos");
 const json = await response.json();
@@ -26,10 +26,10 @@ json.products.forEach((item, index) => {
   div.innerHTML = item.title;
   element.append(div);
 });`),
-    codeHighlight(`<script type="module" async blocking="render">
+  codeHighlight(`<script type="module" async blocking="render">
     // vital JavaScript code...
 </script>`),
-    codeHighlight(`export const getServerSideProps = (async () => {
+  codeHighlight(`export const getServerSideProps = (async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/todos')
   const json = await res.json()
 
@@ -43,7 +43,7 @@ export default function Page({ json }) {
     </main>
   )
 }`),
-    codeHighlight(`<script async type="module" blocking="render">
+  codeHighlight(`<script async type="module" blocking="render">
   const element = document.querySelector("#todos");
   const contentLoadedElement = document.querySelector("#contentLoaded");
   const request = new XMLHttpRequest();
@@ -58,7 +58,7 @@ export default function Page({ json }) {
   });
   contentLoadedElement.style.backgroundColor = "green";
 </script>`),
-    codeHighlight(`const request = new XMLHttpRequest();
+  codeHighlight(`const request = new XMLHttpRequest();
 
 let time = 0;
 let complete = false;
@@ -70,68 +70,71 @@ setInterval(() => {
     time++;
 }, 1000);
 // Fetch logic`),
-    codeHighlight(`request.send(null);
+  codeHighlight(`request.send(null);
 
 if (request.status === 200) {
     // do stuff
 }`),
-    codeHighlight(`const testCache = await caches.open("test");
+  codeHighlight(`const testCache = await caches.open("test");
 const response = new Response(request.responseText);
-testCache.put("https://jsonplaceholder.typicode.com/todos", response);`)
-])
+testCache.put("https://jsonplaceholder.typicode.com/todos", response);`),
+]);
 ---
 
 <head>
-    {/* @ts-ignore */}
-    <script is:inline async type="module" blocking="render">
-        const element = document.querySelector("#todos");
-        const request = new XMLHttpRequest();
-        const contentLoadedElement = document.querySelector("#contentLoaded");
+  {/* @ts-ignore */}
+  <script is:inline async type="module" blocking="render">
+    const element = document.querySelector("#todos");
+    const request = new XMLHttpRequest();
+    const contentLoadedElement = document.querySelector("#contentLoaded");
 
-        request.open("GET", "https://jsonplaceholder.typicode.com/todos", false);
-        request.send(null);
+    request.open("GET", "https://jsonplaceholder.typicode.com/todos", false);
+    request.send(null);
 
-        if (request.status === 200) {
-            const json = JSON.parse(request.responseText);
+    if (request.status === 200) {
+      const json = JSON.parse(request.responseText);
 
-            json.forEach((item) => {
-                const div = document.createElement("div");
-                div.innerText = item.title;
-                element.append(div);
-            });
-            contentLoadedElement.style.backgroundColor = "green";
-        } else {
-            contentLoadedElement.style.backgroundColor = "red";
-        }
+      json.forEach((item) => {
+        const div = document.createElement("div");
+        div.innerText = item.title;
+        element.append(div);
+      });
+      contentLoadedElement.style.backgroundColor = "green";
+    } else {
+      contentLoadedElement.style.backgroundColor = "red";
+    }
 
-        localStorage.setItem("test", "I'm in your local storage!");
-        const localStorageItem = localStorage.getItem("test");
-        document.querySelector("#localStorage").append(localStorageItem);
+    localStorage.setItem("test", "I'm in your local storage!");
+    const localStorageItem = localStorage.getItem("test");
+    document.querySelector("#localStorage").append(localStorageItem);
 
-        sessionStorage.setItem("test", "I'm in your session storage!");
-        const sessionStorageItem = sessionStorage.getItem("test");
-        document.querySelector("#sessionStorage").append(sessionStorageItem);
+    sessionStorage.setItem("test", "I'm in your session storage!");
+    const sessionStorageItem = sessionStorage.getItem("test");
+    document.querySelector("#sessionStorage").append(sessionStorageItem);
 
-        const html = document.querySelector("html");
-        const lang = html.getAttribute("lang");
-        const theme = html.getAttribute("data-theme");
-        document.querySelector("#documentLanguage").append(lang);
-        document.querySelector("#darkMode").append(theme);
+    const html = document.querySelector("html");
+    const lang = html.getAttribute("lang");
+    const theme = html.getAttribute("data-theme");
+    document.querySelector("#documentLanguage").append(lang);
+    document.querySelector("#darkMode").append(theme);
 
-        const cookies = document.cookie;
-        document.querySelector("#cookies").append(cookies);
-    </script>
+    const cookies = document.cookie;
+    document.querySelector("#cookies").append(cookies);
+  </script>
 </head>
 
-<Layout title="In Defense of XMLHttpRequest and Blocking Render" description="Maybe synchronous fetch requests and blocking browser rendering is ok">
-    <main>
-        <article>
-            <header>
-                <h1>In Defense of XMLHttpRequest and Blocking Render</h1>
-            </header>
-            <div
-                    id="contentLoaded"
-                    style="
+<Layout
+  title="In Defense of XMLHttpRequest and Blocking Render"
+  description="Maybe synchronous fetch requests and blocking browser rendering is ok"
+>
+  <main>
+    <article>
+      <header>
+        <h1>In Defense of XMLHttpRequest and Blocking Render</h1>
+      </header>
+      <div
+        id="contentLoaded"
+        style="
             margin-bottom: 16px;
             border-radius: 8px;
             width: max-content;
@@ -139,153 +142,149 @@ testCache.put("https://jsonplaceholder.typicode.com/todos", response);`)
             background-color: red;
             padding: 8px;
           "
-            >
-                All content is loaded.
-            </div>
-            <p>Most people would call this an antipattern.</p>
-            <Fragment set:html={code[0]} />
-            <p>
-                Why? Because it's synchronous and doesn't use fetch. But they wouldn't
-                call this an antipattern.
-            </p>
-            <Fragment set:html={code[1]} />
-            <p>
-                And this doesn't seem quite right to me. Because the awaits here are
-                using fetch in a near synchronous manner. Except they're not quite
-                synchronous, the entire fetch process is pushed onto another thread.
-                And this is a good thing for most cases. It doesn't block the main
-                thread. However, there are still plenty of fun ways to block the main
-                thread and crash a browser. So why are we picking on fetch?
-            </p>
-            <p>
-                But more importantly, why not just use await? Why would you ever want
-                to block the main thread with a fetch request when the interface for
-                not doing so is much cleaner and easier?
-            </p>
-            <p>
-                Let's expand out a bit. I recently read this article on the
-                render="block" attribute:
-                <a
-                        href="https://fullystacked.net/render-blocking-on-purpose/"
-                        target="_blank"
-                >Render-blocking on purpose</a
-                >. What it talks about is the classic issue of style jank caused by
-                JS-driven UI. JavaScript is loaded after HTML/CSS, and there's never
-                been a good way to change this. For example,
-                <a href="https://www.joshwcomeau.com/react/dark-mode/" target="_blank"
-                >a really good dark mode turns out to be really hard</a
-                >. The prior article on render blocking introduces a very interesting
-                piece of code.
-            </p>
-            <Fragment set:html={code[2]} />
-            <p>
-                This got my mind racing. Especially because I've recently rebuilt this
-                site with vanilla HTML/JS/CSS. There's no server, only a custom build
-                step. And while this is great for static content, and I can do code
-                highlighting/templating, there's still a missing piece. Dynamic data.
-            </p>
-            <p>
-                I'm struggling to use a term that isn't "SSR." What I'm really getting
-                at here is the idea of pre-document load rendering.
-            </p>
-            <p>This requires a server:</p>
-            <Fragment set:html={code[3]} />
-            <p>
-                We could make this fetch client side, but then we have to handle a
-                loading state. Where the user sees an initial view before the data is
-                loaded, and a second view after the data is loaded. There are an
-                increasing (and increasingly complex) number of strategies to deal
-                with this. Parallel routing, streaming HTML, server side rendering,
-                server components, client side stale-while-revalidate caching. It
-                seems half the JS ecosystem is focused on inventing new ways to solve
-                this UX. And the surrounding tools are getting more and more complex.
-            </p>
-            <p>
-                What if we were to just use the synchronous request with
-                XMLHTTPRequest above? We can block the render to wait on external
-                resources to make sure users only see what we intend them to see. We
-                can load this data from typicode, and you'll never see a loading
-                state, or a state where this data doesn't exist. You can try reloading
-                the page to see if you can catch a moment when it isn't loaded, but
-                you're not going to see it. This page does not load until this data is
-                ready.
-            </p>
-            <div style="margin-bottom: 18px; display: grid; place-items: center">
-                <img
-                        src={blockRenderImage.src}
-                        style="position: relative; aspect-ratio: 600/307"
-                        height="307"
-                        width="600"
-                        alt="DevTools showing that the todos network call is made and finished before the document content load"
-                />
-            </div>
-            <div
-                    style="
+      >
+        All content is loaded.
+      </div>
+      <p>Most people would call this an antipattern.</p>
+      <Fragment set:html={code[0]} />
+      <p>
+        Why? Because it's synchronous and doesn't use fetch. But they wouldn't
+        call this an antipattern.
+      </p>
+      <Fragment set:html={code[1]} />
+      <p>
+        And this doesn't seem quite right to me. Because the awaits here are
+        using fetch in a near synchronous manner. Except they're not quite
+        synchronous, the entire fetch process is pushed onto another thread. And
+        this is a good thing for most cases. It doesn't block the main thread.
+        However, there are still plenty of fun ways to block the main thread and
+        crash a browser. So why are we picking on fetch?
+      </p>
+      <p>
+        But more importantly, why not just use await? Why would you ever want to
+        block the main thread with a fetch request when the interface for not
+        doing so is much cleaner and easier?
+      </p>
+      <p>
+        Let's expand out a bit. I recently read this article on the
+        render="block" attribute:
+        <a
+          href="https://fullystacked.net/render-blocking-on-purpose/"
+          target="_blank">Render-blocking on purpose</a
+        >. What it talks about is the classic issue of style jank caused by
+        JS-driven UI. JavaScript is loaded after HTML/CSS, and there's never
+        been a good way to change this. For example,
+        <a href="https://www.joshwcomeau.com/react/dark-mode/" target="_blank"
+          >a really good dark mode turns out to be really hard</a
+        >. The prior article on render blocking introduces a very interesting
+        piece of code.
+      </p>
+      <Fragment set:html={code[2]} />
+      <p>
+        This got my mind racing. Especially because I've recently rebuilt this
+        site with vanilla HTML/JS/CSS. There's no server, only a custom build
+        step. And while this is great for static content, and I can do code
+        highlighting/templating, there's still a missing piece. Dynamic data.
+      </p>
+      <p>
+        I'm struggling to use a term that isn't "SSR." What I'm really getting
+        at here is the idea of pre-document load rendering.
+      </p>
+      <p>This requires a server:</p>
+      <Fragment set:html={code[3]} />
+      <p>
+        We could make this fetch client side, but then we have to handle a
+        loading state. Where the user sees an initial view before the data is
+        loaded, and a second view after the data is loaded. There are an
+        increasing (and increasingly complex) number of strategies to deal with
+        this. Parallel routing, streaming HTML, server side rendering, server
+        components, client side stale-while-revalidate caching. It seems half
+        the JS ecosystem is focused on inventing new ways to solve this UX. And
+        the surrounding tools are getting more and more complex.
+      </p>
+      <p>
+        What if we were to just use the synchronous request with XMLHTTPRequest
+        above? We can block the render to wait on external resources to make
+        sure users only see what we intend them to see. We can load this data
+        from typicode, and you'll never see a loading state, or a state where
+        this data doesn't exist. You can try reloading the page to see if you
+        can catch a moment when it isn't loaded, but you're not going to see it.
+        This page does not load until this data is ready.
+      </p>
+      <div style="margin-bottom: 18px; display: grid; place-items: center">
+        <img
+          src={blockRenderImage.src}
+          style="position: relative; aspect-ratio: 600/307"
+          height="307"
+          width="600"
+          alt="DevTools showing that the todos network call is made and finished before the document content load"
+        />
+      </div>
+      <div
+        style="
             margin-bottom: 18px;
             max-height: 100px;
             overflow-y: scroll;
             border: 1px solid white;
           "
-                    id="todos"
-            ></div>
-            <p>This is driven by the following code:</p>
-            <Fragment set:html={code[4]} />
-            <p>
-                We're simply using blocking="render" for what it's meant for. To block
-                the browser from painting the page until everything is done. No jank,
-                without the SSR. I think this has a lot of interesting use cases. It's
-                still important to be careful with this pattern. Things like timeouts,
-                errors, and caching still need to be handled.
-            </p>
-            <p>So let's solve them.</p>
-            <h2>Timeout</h2>
-            <p>
-                While is may seem primitive, it is easy to abort an XMLHTTPRequest. It
-                very conveniently comes with its own abort method. And once handled
-                it's just a matter of letting the user know.
-            </p>
-            <Fragment set:html={code[5]} />
-            <h2>Errors</h2>
-            <p>Nothing tricky here either, check the status or the response.</p>
-            <Fragment set:html={code[6]} />
-            <p>
-                This keeps the benefits of knowing whether there is an error before
-                rendering. And we can load the error state as if it were server
-                rendered. Without loading spinners.
-            </p>
-            <h2>Caching</h2>
-            <p>
-                This is the tricky part. As caching always is. A service worker won't
-                pick this up because it never goes to that onfetch event. It stays on
-                the main thread. Which means we have to have a separate mechanism if
-                we want to cache this request.
-            </p>
-            <p>
-                Unfortunately, XMLHTTPRequest doesn't use the standard
-                Request/Response objects used by Cache API. But we can still turn a
-                response into a Response.
-            </p>
-            <Fragment set:html={code[7]} />
-            <h2>Other Implications</h2>
-            <p>
-                The use cases for render blocking are endless. This is in a lot of the
-                ways familiar to
-                <a
-                        href="https://remix.run/docs/en/main/route/client-loader"
-                        target="_blank"
-                >Remix client loaders</a
-                >. Although in the case of Remix this seems to be handled by the
-                router. But here's some data you might want to get before document
-                load.
-            </p>
-            <ul>
-                <li id="localStorage">Local storage:&ensp;</li>
-                <li id="sessionStorage">Session storage:&ensp;</li>
-                <li id="documentLanguage">Document language:&ensp;</li>
-                <li id="cookies">Cookies:&ensp;</li>
-                <li id="darkMode">Dark mode/Theme (from a CSS class):&ensp;</li>
-            </ul>
-        </article>
-    </main>
+        id="todos"
+      >
+      </div>
+      <p>This is driven by the following code:</p>
+      <Fragment set:html={code[4]} />
+      <p>
+        We're simply using blocking="render" for what it's meant for. To block
+        the browser from painting the page until everything is done. No jank,
+        without the SSR. I think this has a lot of interesting use cases. It's
+        still important to be careful with this pattern. Things like timeouts,
+        errors, and caching still need to be handled.
+      </p>
+      <p>So let's solve them.</p>
+      <h2>Timeout</h2>
+      <p>
+        While is may seem primitive, it is easy to abort an XMLHTTPRequest. It
+        very conveniently comes with its own abort method. And once handled it's
+        just a matter of letting the user know.
+      </p>
+      <Fragment set:html={code[5]} />
+      <h2>Errors</h2>
+      <p>Nothing tricky here either, check the status or the response.</p>
+      <Fragment set:html={code[6]} />
+      <p>
+        This keeps the benefits of knowing whether there is an error before
+        rendering. And we can load the error state as if it were server
+        rendered. Without loading spinners.
+      </p>
+      <h2>Caching</h2>
+      <p>
+        This is the tricky part. As caching always is. A service worker won't
+        pick this up because it never goes to that onfetch event. It stays on
+        the main thread. Which means we have to have a separate mechanism if we
+        want to cache this request.
+      </p>
+      <p>
+        Unfortunately, XMLHTTPRequest doesn't use the standard Request/Response
+        objects used by Cache API. But we can still turn a response into a
+        Response.
+      </p>
+      <Fragment set:html={code[7]} />
+      <h2>Other Implications</h2>
+      <p>
+        The use cases for render blocking are endless. This is in a lot of the
+        ways familiar to
+        <a
+          href="https://remix.run/docs/en/main/route/client-loader"
+          target="_blank">Remix client loaders</a
+        >. Although in the case of Remix this seems to be handled by the router.
+        But here's some data you might want to get before document load.
+      </p>
+      <ul>
+        <li id="localStorage">Local storage:&ensp;</li>
+        <li id="sessionStorage">Session storage:&ensp;</li>
+        <li id="documentLanguage">Document language:&ensp;</li>
+        <li id="cookies">Cookies:&ensp;</li>
+        <li id="darkMode">Dark mode/Theme (from a CSS class):&ensp;</li>
+      </ul>
+    </article>
+  </main>
 </Layout>
-

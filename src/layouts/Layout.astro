@@ -1,103 +1,82 @@
 ---
-import PicoCss from "./PicoCss.astro";
 type Props = {
-    title: string;
-    description: string;
-}
+  title: string;
+  description: string;
+};
 
-import frontendMastersImage from '../images/frontend-masters-32x32.png'
-import credlyImage from '../images/credly.svg'
-import githubImage from '../images/github.svg'
-import linkedinImage from '../images/linkedin.svg'
+import frontendMastersImage from "../images/frontend-masters-32x32.png";
+import credlyImage from "../images/credly.svg";
+import githubImage from "../images/github.svg";
+import linkedinImage from "../images/linkedin.svg";
 import Speculation from "./Speculation.astro";
+import Head from "./Head.astro";
 
-const {title, description} = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" data-theme="dark">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="description" content={description}/>
-    <meta name="viewport" content="width=device-width"/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-    <meta name="theme-color" content="#ffffff"/>
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="generator" content={Astro.generator}/>
-    <PicoCss />
-    <title>{title}</title>
-</head>
+  <Head title={title} description={description} />
 
-<body class="container">
-<header>
-    <nav>
+  <body class="container">
+    <header>
+      <nav>
         <ul>
-            <li>
-                <a id="Home" href="/">
-                    <strong>EthanG</strong>
-                </a>
-            </li>
+          <li>
+            <a id="Home" href="/">
+              <strong>EthanG</strong>
+            </a>
+          </li>
         </ul>
         <ul>
-            <li>
-                <a
-                        id="Frontend Masters"
-                        target="_blank"
-                        href="https://frontendmasters.com/u/ethang/"
-                >
-                    <img
-                            height="48"
-                            width="48"
-                            src={frontendMastersImage.src}
-                            alt="Frontend Masters"
-                    />
-                </a>
-            </li>
+          <li>
+            <a
+              id="Frontend Masters"
+              target="_blank"
+              href="https://frontendmasters.com/u/ethang/"
+            >
+              <img
+                height="48"
+                width="48"
+                src={frontendMastersImage.src}
+                alt="Frontend Masters"
+              />
+            </a>
+          </li>
 
-            <li>
-                <a
-                        id="Credly"
-                        target="_blank"
-                        href="https://www.credly.com/users/ethan-glover.341d99c5"
-                >
-                    <img
-                            height="48"
-                            width="48"
-                            src={credlyImage.src}
-                            alt="Credly"
-                    />
-                </a>
-            </li>
+          <li>
+            <a
+              id="Credly"
+              target="_blank"
+              href="https://www.credly.com/users/ethan-glover.341d99c5"
+            >
+              <img height="48" width="48" src={credlyImage.src} alt="Credly" />
+            </a>
+          </li>
 
-            <li>
-                <a id="GitHub" target="_blank" href="https://github.com/eglove">
-                    <img
-                            height="48"
-                            width="48"
-                            src={githubImage.src}
-                            alt="GitHub"
-                    />
-                </a>
-            </li>
-            <li>
-                <a
-                        id="LinkedIn"
-                        target="_blank"
-                        href="https://www.linkedin.com/in/ethan-glover/"
-                >
-                    <img
-                            height="48"
-                            width="48"
-                            src={linkedinImage.src}
-                            alt="LinkedIn"
-                    />
-                </a>
-            </li>
+          <li>
+            <a id="GitHub" target="_blank" href="https://github.com/eglove">
+              <img height="48" width="48" src={githubImage.src} alt="GitHub" />
+            </a>
+          </li>
+          <li>
+            <a
+              id="LinkedIn"
+              target="_blank"
+              href="https://www.linkedin.com/in/ethan-glover/"
+            >
+              <img
+                height="48"
+                width="48"
+                src={linkedinImage.src}
+                alt="LinkedIn"
+              />
+            </a>
+          </li>
         </ul>
-    </nav>
-
-</header>
-<slot/>
-</body>
-<Speculation/>
+      </nav>
+    </header>
+    <slot />
+    <Speculation />
+  </body>
 </html>

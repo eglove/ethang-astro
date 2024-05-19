@@ -1,0 +1,78 @@
+---
+import { positions } from "./utils/positions";
+import isNil from "lodash/isNil.js";
+import isEmpty from "lodash/isEmpty.js";
+import map from "lodash/map.js";
+import { dateFormatter, formatTech } from "./utils/formatters";
+type Properties = {
+  startDate?: string;
+  endDate?: string;
+  title: string;
+  position?: string;
+};
+
+const { startDate, endDate, title, position } = Astro.props as Properties;
+
+let methodologiesUsed: string[] = [];
+let techUsed: string[] = [];
+
+if (position === "_all") {
+  methodologiesUsed = map(positions, (position) => {
+    return position.methodologiesUsed;
+  })
+    .flat()
+    .sort((a, b) => {
+      return a.localeCompare(b);
+    });
+
+  techUsed = map(positions, (position) => {
+    return position.techUsed;
+  })
+    .flat()
+    .sort((a, b) => {
+      return a.localeCompare(b);
+    });
+} else if (!isNil(position)) {
+  methodologiesUsed =
+    positions[position as keyof typeof positions].methodologiesUsed;
+  techUsed = positions[position as keyof typeof positions].techUsed;
+}
+---
+
+<article>
+  <header style="display: flex; justify-content: space-between">
+    <b>{title}</b>
+    {
+      !isNil(startDate) && isNil(endDate) && (
+        <span>{dateFormatter.format(new Date(startDate))} - (Current)</span>
+      )
+    }
+    {
+      !isNil(startDate) && !isNil(endDate) && (
+        <span>
+          {dateFormatter.format(new Date(startDate))} -{" "}
+          {dateFormatter.format(new Date(endDate))}
+        </span>
+      )
+    }
+  </header>
+  <ul style="margin-bottom: 0">
+    <slot />
+    {
+      !isEmpty(techUsed) && (
+        <li>
+          <b>Tech Used: </b>
+          {formatTech(techUsed)}
+        </li>
+      )
+    }
+    {
+      !isEmpty(methodologiesUsed) && (
+        <li>
+          <b>Methodologies Used: </b>
+          {formatTech(methodologiesUsed)}
+        </li>
+      )
+    }
+  </ul>
+</article>

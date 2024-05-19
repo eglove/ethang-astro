@@ -1,0 +1,51 @@
+---
+import Head from "../../layouts/Head.astro";
+import SkillBars from "../../components/resume/SkillBars.astro";
+import ExperienceCard from "../../components/resume/ExperienceCard.astro";
+import PositionSummary from "../../components/resume/PositionSummary.astro";
+import Certifications from "../../components/resume/Certifications.astro";
+import ProjectSummary from "../../components/resume/ProjectSummary.astro";
+---
+
+<!doctype html>
+<html lang="en-US" data-theme="light">
+  <Head title="EthanGloverResume" description="Ethan Glover Resume" />
+  <body>
+    <div style="font-size: 12px; padding: 16px">
+      <header>
+        <h1 style="font-size: 24px">Ethan Glover</h1>
+        <p>
+          St. Louis, MO 63017 |
+          <a href="tel:8165420568"> (816) 542-0568</a>
+          <br />
+          <a href="mailto:hello@ethang.email"> hello@ethang.email</a> |
+          <a href="https://ethang.dev"> https://ethang.dev</a>
+        </p>
+        <p>
+          Software engineer with experience across many different technologies.
+          I have been writing code and working with the web for most of my life.
+          I built my first website at around 9 years old, it was a green neon
+          background with 10 pictures of monkeys written in HTML/CSS. I&apos;ve
+          continued to learn through my life by getting into the
+          advantages/disadvantages of different perspectives like OOP,
+          functional programming, hybrid paradigms, test-driven development and
+          behavior-driven development. I am constantly working on side projects
+          and love jumping in and learning new things.
+        </p>
+      </header>
+      <SkillBars />
+      <ExperienceCard
+        startDate="Nov. 2018"
+        endDate="May 2024"
+        title="Software Contractor/Consultant"
+        position="_all"><PositionSummary /></ExperienceCard
+      >
+      <ExperienceCard title="Certifications">
+        <Certifications />
+      </ExperienceCard>
+      <ExperienceCard title="Projects">
+        <ProjectSummary />
+      </ExperienceCard>
+    </div>
+  </body>
+</html>

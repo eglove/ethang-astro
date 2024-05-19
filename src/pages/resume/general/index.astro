@@ -1,0 +1,76 @@
+---
+import Head from "../../../layouts/Head.astro";
+import ExperienceCard from "../../../components/resume/ExperienceCard.astro";
+import GeneralSummary from "../../../components/resume/GeneralSummary.astro";
+---
+
+<!doctype html>
+<html lang="en-US" data-theme="light">
+  <Head title="EthanGloverResumeG" description="Ethan Glover Resume" />
+  <body>
+    <div style="font-size: 12px; padding: 16px">
+      <header>
+        <h1 style="font-size: 24px">Ethan Glover</h1>
+        <p>
+          St. Louis, MO 63017 |
+          <a href="tel:8165420568"> (816) 542-0568</a>
+          <br />
+          <a href="mailto:hello@ethang.email"> hello@ethang.email</a> |
+          <a href="https://ethang.dev"> https://ethang.dev</a>
+        </p>
+      </header>
+      <ExperienceCard
+        startDate="Nov 2018"
+        endDate="May 2024"
+        title="Software Contractor/Consultant"
+        ><GeneralSummary /></ExperienceCard
+      >
+
+      <ExperienceCard
+        startDate="May 2015"
+        endDate="Aug 2019"
+        title="Professional Driver"
+      >
+        <li>
+          Over-the-road (OTR) truck driver with Roehl Transport, responsible for
+          driving dry van trailers nationally.
+        </li>
+        <li>
+          Box truck driver with People's Linen Rental, delivering linens to
+          hotels and restaurants in the Stowe, VT area and collecting soiled
+          linens for cleaning.
+        </li>
+        <li>Pizza delivery experience at Crossroads Pizza & Subs.</li>
+      </ExperienceCard>
+
+      <ExperienceCard
+        startDate="Jun 2008"
+        endDate="Jun 2012"
+        title="Signal Systems Support Specialist"
+      >
+        <li>
+          Consistently performed all requirements regarding the overall
+          operations of selected electronic devices, responsible for
+          installation, operation and maintenance of radio and data distribution
+          systems; ensured all orders were completed on time and met U.S. Army
+          standards.
+        </li>
+        <li>
+          Exceeded expectations providing comprehensive support and training for
+          user-owned and operated automated telecommunication computer systems.
+        </li>
+        <li>
+          Demonstrated outstanding technical expertise on numerous projects
+          including technical assistance and training for local area networks
+          and routers, signal communications and offering support for satellite
+          radio and communications equipment functions. Installed, maintained
+          and conducted troubleshooting measures on terminal devices.
+        </li>
+        <li>
+          Operated and performed proactive preventive maintenance checks and
+          services on assigned vehicles and power generators.
+        </li>
+      </ExperienceCard>
+    </div>
+  </body>
+</html>

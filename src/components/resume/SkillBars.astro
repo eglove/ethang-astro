@@ -1,0 +1,46 @@
+---
+import { getExperience } from "./utils/positions";
+import isNil from "lodash/isNil.js";
+import { skillMap } from "./utils/skills";
+
+const experiences = getExperience().slice(0, 15);
+
+const yearFormatter = Intl.NumberFormat("en-US", {
+  maximumFractionDigits: 2,
+  style: "unit",
+  unit: "year",
+});
+---
+
+<article>
+  <header><b>Core skills</b></header>
+  <div
+    style="display: grid; column-gap: 16px; grid-template-columns: repeat(3, auto)"
+  >
+    {
+      experiences.map((item) => {
+        if (isNil(item.experience) || isNil(experiences?.[0]?.experience)) {
+          return null;
+        }
+
+        return (
+          <div>
+            <div>
+              <div style="display: flex; justify-content: space-between">
+                <span>{skillMap[item.skill as keyof typeof skillMap]}</span>
+                <span>{yearFormatter.format(item.experience)}</span>
+              </div>
+            </div>
+            <div>
+              <progress
+                style="height: 6px"
+                value={item.experience}
+                max={experiences?.[0].experience}
+              />
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</article>

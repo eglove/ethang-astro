@@ -2,8 +2,8 @@
 import { positions } from "./utils/positions";
 import isNil from "lodash/isNil.js";
 import isEmpty from "lodash/isEmpty.js";
-import map from "lodash/map.js";
 import { dateFormatter, formatTech } from "./utils/formatters";
+import { getAllUsed, getUsedByPosition } from "./utils/used";
 type Properties = {
   startDate?: string;
   endDate?: string;
@@ -17,25 +17,13 @@ let methodologiesUsed: string[] = [];
 let techUsed: string[] = [];
 
 if (position === "_all") {
-  methodologiesUsed = map(positions, (position) => {
-    return position.methodologiesUsed;
-  })
-    .flat()
-    .sort((a, b) => {
-      return a.localeCompare(b);
-    });
-
-  techUsed = map(positions, (position) => {
-    return position.techUsed;
-  })
-    .flat()
-    .sort((a, b) => {
-      return a.localeCompare(b);
-    });
+  const used = getAllUsed();
+  methodologiesUsed = used[0];
+  techUsed = used[1];
 } else if (!isNil(position)) {
-  methodologiesUsed =
-    positions[position as keyof typeof positions].methodologiesUsed;
-  techUsed = positions[position as keyof typeof positions].techUsed;
+  const used = getUsedByPosition(position as keyof typeof positions);
+  methodologiesUsed = used[0];
+  techUsed = used[1];
 }
 ---
 

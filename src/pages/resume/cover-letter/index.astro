@@ -1,0 +1,122 @@
+---
+import Head from "../../../layouts/Head.astro";
+---
+
+<!doctype html>
+<html lang="en-US" data-theme="light">
+  <Head
+    title="EthanGloverCoverLetter"
+    description="Ethan Glover Cover Letter"
+  />
+  <cover-letter>
+    <div id="form">
+      <label>
+        Is Contract:&emsp; <input type="checkbox" name="isContract" /></label
+      >
+      <input
+        aria-label="Position"
+        type="text"
+        placeholder="Position"
+        name="position"
+      />
+      <input
+        aria-label="Company Name"
+        type="text"
+        placeholder="Company Name"
+        name="companyName"
+      />
+      <textarea aria-label="Custom" name="custom" placeholder="Custom"
+      ></textarea>
+      <button type="button">Hide Form</button>
+    </div>
+    <article style="font-size: 12px; padding: 16px">
+      <header>
+        <h1 style="font-size: 24px">Ethan Glover</h1>
+        <p>Chesterfield, MO 63017 | 816-542-0568 | hello@ethang.email</p>
+      </header>
+      <p data-current-date></p>
+      <p>
+        Thank you for considering me for the position of
+        <span data-positionAtCompany></span>. I have been working as a Software
+        Engineer for over <span data-yoe></span> years doing mostly contracts and
+        consultancies focused on helping teams take applications and projects to
+        the next level. Whether it&apos;s moving to a new, modern tech stack, or
+        introducing tests to a legacy codebase, my previous positions have allowed
+        me to learn a lot in a very short amount of time. They&apos;ve forced me
+        to think on my feet and learn a lot of different perspectives and approaches
+        to projects.
+      </p>
+      <p data-remove-on-contract>
+        While I appreciate being able to do contract work, this is not what
+        I&apos;m looking for in a long-term career. Contracts have been my
+        trajectory, and become a part of my professional skillset. Augmenting
+        teams during rewrite processes is where a lot of my experience is. I
+        would like to go beyond helping with transition periods and find a full
+        time position with a long-term project.
+      </p>
+      <p>
+        I&apos;ve been able to work with a lot of different technologies, and I
+        do my best to keep up with technology as much as possible. I love
+        learning, and I love being able to mix ideas and experiences to find the
+        best solution to any problem. Whether it&apos;s using ideas from OOP to
+        structure data, or the ideas from FP to make code more readable and
+        reusable.
+      </p>
+      <p>
+        I always have side projects going such as building an image optimization
+        service with GoLang, experimenting with Kubernetes, or building out
+        TypeScript libraries. I love learning, and more importantly, I love
+        being around people who love learning.
+      </p>
+      <p>My professional experiences include:</p>
+      <ul>
+        <li>
+          Building a team collaboration app from scratch with features such as
+          P2P video conferences, chat, phone calls, calendar, file sharing and
+          more.
+        </li>
+        <li>Helped rebuild the EPA ECMPS backend to a new tech stack.</li>
+        <li>
+          Helped setup unit testing during a rewrite of the St. Louis County tax
+          system.
+        </li>
+        <li>
+          Lead the rewrite of a project from vanilla React to Next.JS with
+          server rendering with a team unfamiliar with the concepts.
+        </li>
+      </ul>
+      <p data-remove-on-contract>
+        I would love to bring my experiences and perspectives to
+        <span data-companyName data-default="this position"></span>. My primary
+        goal within the first few months would be to learn
+        <span data-companyName data-default="your" data-plural="true"></span>
+        processes and standards. This is as opposed to previous positions where my
+        goal has been to make very large changes and recommend and implement a new
+        path forward. I am always comfortable with creative thinking and problem
+        solving as needed. I don&apos;t shy away from making suggestions that I feel
+        would help everyone, but I do want to make sure that fits within
+        <span data-companyName data-default="your" data-plural="true"></span>
+        model.
+      </p>
+      <p data-contract-only>
+        I think my previous experiences as a contractor and consultant has
+        allowed me to learn how to onboard and start contributing in a very
+        short amount of time. It is the same for learning new technologies and
+        processes. I believe that skillset will allow me to excel
+        <span
+          data-companyName
+          data-default="in this position"
+          data-prepend-companyName="with "></span>.
+      </p>
+      <p data-custom></p>
+      <p>
+        Thank you for considering my application. I would love to schedule a
+        time to talk more about the position and what I can bring to the role. I
+        hope we can talk soon, thank you!
+      </p>
+      <p style="margin-bottom: 4px">Ethan Glover</p>
+      <p>Software Engineer</p>
+    </article>
+  </cover-letter>
+  <script type="module" src="/public/scripts/cover-letter.mjs"></script>
+</html>

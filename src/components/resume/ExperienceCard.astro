@@ -18,12 +18,12 @@ let techUsed: string[] = [];
 
 if (position === "_all") {
   const used = getAllUsed();
-  methodologiesUsed = used[0];
-  techUsed = used[1];
+  methodologiesUsed = used[0] ?? [];
+  techUsed = used[1] ?? [];
 } else if (!isNil(position)) {
   const used = getUsedByPosition(position as keyof typeof positions);
-  methodologiesUsed = used[0];
-  techUsed = used[1];
+  methodologiesUsed = used[0] ?? [];
+  techUsed = used[1] ?? [];
 }
 ---
 

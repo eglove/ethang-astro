@@ -1,0 +1,26 @@
+---
+import ExperienceCard from "../ExperienceCard.astro";
+import { positions } from "../utils/positions";
+
+const position = positions.centuryLink;
+---
+
+<ExperienceCard
+  title={position.title}
+  startDate={position.startDate}
+  endDate={position.endDate}
+  position="centuryLink"
+>
+  <li>
+    Redesigned customer dashboard for users managing their accounts with vanilla
+    JavaScript and CSS stylesheets. Maintained compatibility with Internet
+    Explorer 11.
+  </li>
+
+  <li>
+    Helped and guided team more familiar with Java and HTML templating to create
+    a Vue based proof of concept. A frontend rewrite is something the team had
+    wanted to do, but the company had no direct funding for. We built a POC as a
+    side project to prove it would take less time and money than expected.
+  </li>
+</ExperienceCard>

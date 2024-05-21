@@ -1,0 +1,25 @@
+---
+import ExperienceCard from "../ExperienceCard.astro";
+import { positions } from "../utils/positions";
+
+const position = positions.eightBase;
+---
+
+<ExperienceCard
+  title={position.title}
+  startDate={position.startDate}
+  endDate={position.endDate}
+  position="eightBase"
+>
+  <li>
+    Worked on a low-code platform for a startup for generating GraphQL APIs
+    through a React-based user interface.
+  </li>
+
+  <li>
+    This was a short contract to help a company whose primary team was in Russia
+    at the start of the war with Ukraine. With payment systems cut off, they
+    could no longer get payments to developers. A US team was built quickly in
+    an emergency, we had to adapt and keep the product going without onboarding.
+  </li>
+</ExperienceCard>

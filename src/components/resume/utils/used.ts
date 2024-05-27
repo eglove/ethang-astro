@@ -3,7 +3,6 @@ import map from "lodash/map";
 import { positions } from "./positions.ts";
 
 export function getAllUsed() {
-  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   const methodologiesUsed = map(positions, (position) => {
     return position.methodologiesUsed;
   })
@@ -12,7 +11,6 @@ export function getAllUsed() {
       return a.localeCompare(b);
     });
 
-  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   const techUsed = map(positions, (position) => {
     return position.techUsed;
   })

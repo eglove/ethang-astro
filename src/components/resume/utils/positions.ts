@@ -187,7 +187,6 @@ export const positions = {
 export const getExperience = () => {
   const experience: Record<string, number> = {};
 
-  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   forEach(positions, (position) => {
     const { startDate, endDate, techUsed, methodologiesUsed } = position;
 

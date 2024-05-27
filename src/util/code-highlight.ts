@@ -6,7 +6,7 @@ export async function codeHighlight(
   lang = "typescript",
 ) {
   return codeToHtml(text, {
-    theme,
     lang,
+    theme,
   });
 }

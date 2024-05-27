@@ -1,7 +1,7 @@
-import { DateTime } from "luxon";
+import lodash from "lodash";
 import forEach from "lodash/forEach.js";
 import isNil from "lodash/isNil.js";
-import lodash from "lodash";
+import { DateTime } from "luxon";
 
 export const experienceStart = DateTime.fromObject({ month: 11, year: 2018 });
 
@@ -187,6 +187,7 @@ export const positions = {
 export const getExperience = () => {
   const experience: Record<string, number> = {};
 
+  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   forEach(positions, (position) => {
     const { startDate, endDate, techUsed, methodologiesUsed } = position;
 
@@ -197,9 +198,10 @@ export const getExperience = () => {
 
     const duration = end.diff(start, "months").months;
 
-    const skillsUsed = [...techUsed, ...methodologiesUsed] as unknown as
-      | typeof techUsed
-      | typeof methodologiesUsed;
+    const skillsUsed = [
+      ...techUsed,
+      ...methodologiesUsed,
+    ] as unknown as typeof methodologiesUsed;
     for (const skill of skillsUsed) {
       const current = experience[skill];
 
@@ -207,21 +209,25 @@ export const getExperience = () => {
     }
   });
 
-  return lodash
-    .chain(experience)
-    .forEach((months, skill) => {
-      if (!isNil(months) && months >= 13) {
-        experience[skill] = Number(months / 12);
-      } else {
-        delete experience[skill];
-      }
-    })
-    .map((_, skill) => {
-      return {
-        experience: experience[skill],
-        skill,
-      };
-    })
-    .orderBy(["experience"], ["desc"])
-    .value();
+  return (
+    lodash
+      .chain(experience)
+      // eslint-disable-next-line unicorn/no-array-for-each
+      .forEach((months, skill) => {
+        if (!isNil(months) && 13 <= months) {
+          experience[skill] = Number(months / 12);
+        } else {
+          // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+          delete experience[skill];
+        }
+      })
+      .map((_, skill) => {
+        return {
+          experience: experience[skill],
+          skill,
+        };
+      })
+      .orderBy(["experience"], ["desc"])
+      .value()
+  );
 };

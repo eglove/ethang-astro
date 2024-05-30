@@ -5,7 +5,6 @@ import PositionSummary from "../../components/resume/PositionSummary.astro";
 import Certifications from "../../components/resume/Certifications.astro";
 import ProjectSummary from "../../components/resume/ProjectSummary.astro";
 import { DateTime } from "luxon";
-import { getExperience } from "../../components/resume/utils/positions";
 
 const timezone = "America/Chicago";
 const startDate = DateTime.fromObject({ year: 2018, month: 11 }).setZone(
@@ -18,8 +17,6 @@ const formatter = Intl.NumberFormat("en-US", {
   unit: "year",
   maximumFractionDigits: 2,
 }).format;
-
-console.log(getExperience());
 ---
 
 <!doctype html>

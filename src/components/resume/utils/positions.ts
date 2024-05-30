@@ -208,25 +208,14 @@ export const getExperience = () => {
     }
   });
 
-  return (
-    lodash
-      .chain(experience)
-      // eslint-disable-next-line unicorn/no-array-for-each
-      .forEach((months, skill) => {
-        if (!isNil(months) && 13 <= months) {
-          experience[skill] = Number(months / 12);
-        } else {
-          // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-          delete experience[skill];
-        }
-      })
-      .map((_, skill) => {
-        return {
-          experience: experience[skill],
-          skill,
-        };
-      })
-      .orderBy(["experience"], ["desc"])
-      .value()
-  );
+  return lodash
+    .chain(experience)
+    .map((_, skill) => {
+      return {
+        experience: experience[skill],
+        skill,
+      };
+    })
+    .orderBy(["experience"], ["desc"])
+    .value();
 };

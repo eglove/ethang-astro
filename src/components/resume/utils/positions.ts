@@ -188,7 +188,7 @@ export const getExperience = () => {
   const experience: Record<string, number> = {};
 
   forEach(positions, (position) => {
-    const { startDate, endDate, techUsed, methodologiesUsed } = position;
+    const { endDate, methodologiesUsed, startDate, techUsed } = position;
 
     const start = DateTime.fromFormat(startDate, "MMM yyyy");
     const end = isNil(endDate)

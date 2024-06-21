@@ -16,8 +16,8 @@
     "astrojs-service-worker": "^2.0.0",
     "lodash": "^4.17.21",
     "luxon": "^3.4.4",
-    "shiki": "^1.7.0",
-    "typescript": "^5.4.5"
+    "shiki": "^1.8.0",
+    "typescript": "^5.5.2"
   },
   "devDependencies": {
     "@ethang/eslint-config": "^17.0.10",

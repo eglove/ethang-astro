@@ -11,22 +11,22 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
+    "@astrojs/check": "^0.8.0",
     "astro": "^4.11.5",
     "astrojs-service-worker": "^2.0.0",
     "lodash": "^4.17.21",
     "luxon": "^3.4.4",
-    "shiki": "^1.10.1",
+    "shiki": "^1.10.3",
     "typescript": "^5.5.3"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "^17.0.13",
-    "@ethang/project-builder": "^1.1.42",
+    "@ethang/eslint-config": "^17.1.0",
+    "@ethang/project-builder": "^1.1.43",
     "@types/lodash": "^4.17.6",
     "@types/luxon": "^3.4.2",
     "eslint": "^9.6.0",
     "prettier": "^3.3.2",
     "prettier-plugin-astro": "^0.14.0",
-    "typescript-eslint": "^7.15.0"
+    "typescript-eslint": "^7.16.0"
   }
 }

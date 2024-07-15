@@ -20,10 +20,14 @@ const { data: transactionData } = await ynabClient.transactions.getTransactions(
   DateTime.now().minus({ day: 7 }).toJSDate().toISOString(),
 );
 
+const transactions = transactionData.transactions.filter((item) => {
+  return item.category_name !== "Credit Card";
+});
+
 let totalExpenses = 0;
 let totalIncome = 0;
 
-for (const detail of transactionData.transactions) {
+for (const detail of transactions) {
   if (detail.amount < 0) {
     totalExpenses += detail.amount;
   } else {
@@ -58,7 +62,7 @@ const difference = totalIncome + totalExpenses;
         <th>Amount</th>
       </tr>
       {
-        transactionData.transactions.reverse().map((item) => {
+        transactions.reverse().map((item) => {
           return (
             <tr>
               <td>

@@ -1,0 +1,78 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { ynabClient } from "../../clients/ynab";
+import { DateTime } from "luxon";
+import { Astro } from "astro/env";
+
+if (!Astro.url.host.startsWith("localhost")) {
+  return Astro.redirect("/");
+}
+
+const currencyFormatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
+const { data } = await ynabClient.budgets.getBudgets();
+const budget = data.budgets.find((item) => item.name === "MyBudget");
+const { data: transactionData } = await ynabClient.transactions.getTransactions(
+  budget.id,
+  DateTime.now().minus({ day: 7 }).toJSDate().toISOString(),
+);
+
+let totalExpenses = 0;
+let totalIncome = 0;
+
+for (const detail of transactionData.transactions) {
+  if (detail.amount < 0) {
+    totalExpenses += detail.amount;
+  } else {
+    totalIncome += detail.amount;
+  }
+}
+
+totalExpenses /= 1000;
+totalIncome /= 1000;
+const difference = totalIncome + totalExpenses;
+---
+
+<Layout title="EthanG Budget">
+  <main>
+    <div>
+      <strong>Total Expenses:</strong>
+      {currencyFormatter.format(totalExpenses)}
+    </div>
+    <div>
+      <strong>Total Income:</strong>
+      {currencyFormatter.format(totalIncome)}
+    </div>
+    <div style={`${difference < 0 ? "color: red;" : "color: green;"}`}>
+      <strong>Difference:</strong>
+      {currencyFormatter.format(difference)}
+    </div>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Payee</th>
+        <th>Amount</th>
+      </tr>
+      {
+        transactionData.transactions.reverse().map((item) => {
+          return (
+            <tr>
+              <td>
+                {DateTime.fromISO(item.date).toLocaleString({
+                  dateStyle: "full",
+                })}
+              </td>
+              <td>{item.category_name}</td>
+              <td>{item.payee_name}</td>
+              <td>{currencyFormatter.format(item.amount / 1000)}</td>
+            </tr>
+          );
+        })
+      }
+    </table>
+  </main>
+</Layout>

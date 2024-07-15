@@ -17,7 +17,9 @@
     "lodash": "^4.17.21",
     "luxon": "^3.4.4",
     "shiki": "^1.10.3",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "ynab": "^2.4.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@ethang/eslint-config": "^17.1.3",

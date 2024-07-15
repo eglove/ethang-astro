@@ -15,7 +15,7 @@ const currencyFormatter = new Intl.NumberFormat("en-US", {
 const { data } = await ynabClient.budgets.getBudgets();
 const budget = data.budgets.find((item) => item.name === "MyBudget");
 const { data: transactionData } = await ynabClient.transactions.getTransactions(
-  budget.id,
+  budget?.id,
   DateTime.now().minus({ day: 7 }).toJSDate().toISOString(),
 );
 

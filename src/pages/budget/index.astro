@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import { ynabClient } from "../../clients/ynab";
 import { DateTime } from "luxon";
-import { Astro } from "astro/env";
 
 if (!Astro.url.host.startsWith("localhost")) {
   return Astro.redirect("/");
@@ -40,7 +39,7 @@ totalIncome /= 1000;
 const difference = totalIncome + totalExpenses;
 ---
 
-<Layout title="EthanG Budget">
+<Layout title="EthanG Budget" description="Budget">
   <main>
     <div>
       <strong>Total Expenses:</strong>

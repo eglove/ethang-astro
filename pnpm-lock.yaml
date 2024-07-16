@@ -29,6 +29,9 @@ importers:
       typescript:
         specifier: ^5.5.3
         version: 5.5.3
+      web-features:
+        specifier: ^0.10.0
+        version: 0.10.0
       ynab:
         specifier: ^2.4.0
         version: 2.4.0
@@ -4010,6 +4013,9 @@ packages:
 
   vscode-uri@3.0.8:
     resolution: {integrity: sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==}
+
+  web-features@0.10.0:
+    resolution: {integrity: sha512-0sfyFskCSzUqXPtq4TZ4DkHl9uWLcGe/aX/8jZZv05frc5UZJkMyHE4HAC+Tu0RcI/a4ePTfiRK84rB7Ot5c2A==}
 
   web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
@@ -8900,6 +8906,8 @@ snapshots:
   vscode-uri@2.1.2: {}
 
   vscode-uri@3.0.8: {}
+
+  web-features@0.10.0: {}
 
   web-namespaces@2.0.1: {}
 

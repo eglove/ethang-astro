@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.8.2",
+    "@astrojs/partytown": "^2.1.1",
     "astro": "^4.12.2",
     "astrojs-service-worker": "^2.0.0",
     "lodash": "^4.17.21",

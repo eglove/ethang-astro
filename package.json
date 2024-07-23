@@ -17,21 +17,21 @@
     "astrojs-service-worker": "^2.0.0",
     "lodash": "^4.17.21",
     "luxon": "^3.4.4",
-    "shiki": "^1.11.0",
-    "typescript": "^5.5.3",
+    "shiki": "^1.11.1",
+    "typescript": "^5.5.4",
     "web-features": "^1.0.0",
     "ynab": "^2.4.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "^17.3.0",
-    "@ethang/project-builder": "^1.1.47",
+    "@ethang/eslint-config": "^17.4.0",
+    "@ethang/project-builder": "^1.1.48",
     "@types/lodash": "^4.17.7",
     "@types/luxon": "^3.4.2",
     "eslint": "^9.7.0",
     "eslint-plugin-sonarjs": "1.0.3",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript-eslint": "^7.16.1"
+    "typescript-eslint": "^7.17.0"
   }
 }

@@ -88,6 +88,20 @@ export const positions = {
     ],
     title: "Consultant, US Environmental Protection Agency (EPA)",
   },
+  freelance2024: {
+    endDate: "",
+    methodologiesUsed: ["accessibility"],
+    startDate: "May 2024",
+    techUsed: [
+      "react",
+      "typeScript",
+      "javascript",
+      "tailwind",
+      "htmlCss",
+      "reactNative",
+    ],
+    title: "Contractor",
+  },
   legrandAv: {
     endDate: "May 2024",
     methodologiesUsed: ["agile", "onPremHosting", "accessibility"],

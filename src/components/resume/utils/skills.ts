@@ -41,6 +41,7 @@ export const skillMap = {
   prisma: "Prisma",
   qwikCity: "QwikCity",
   react: "React",
+  reactNative: "React Native",
   reactPdf: "ReactPDF",
   reactTestingLibrary: "React Testing Library",
   redux: "Redux",

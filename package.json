@@ -11,9 +11,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.8.3",
+    "@astrojs/check": "^0.9.1",
     "@astrojs/partytown": "^2.1.1",
-    "astro": "^4.12.2",
+    "astro": "^4.12.3",
     "astrojs-service-worker": "^2.0.0",
     "lodash": "^4.17.21",
     "luxon": "^3.4.4",
@@ -24,13 +24,13 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "^17.5.2",
-    "@ethang/project-builder": "^1.1.50",
+    "@ethang/eslint-config": "^17.6.0",
+    "@ethang/project-builder": "^1.1.51",
     "@types/lodash": "^4.17.7",
     "@types/luxon": "^3.4.2",
     "eslint": "^9.8.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript-eslint": "^7.18.0"
+    "typescript-eslint": "^8.0.0"
   }
 }

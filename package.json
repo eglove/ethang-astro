@@ -16,7 +16,7 @@
     "astro": "^4.13.1",
     "astrojs-service-worker": "^2.0.0",
     "lodash": "^4.17.21",
-    "luxon": "^3.4.4",
+    "luxon": "^3.5.0",
     "shiki": "^1.12.1",
     "typescript": "^5.5.4",
     "web-features": "^1.0.0",
@@ -24,7 +24,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "^17.6.1",
+    "@ethang/eslint-config": "^18.0.0",
     "@ethang/project-builder": "^1.1.52",
     "@types/lodash": "^4.17.7",
     "@types/luxon": "^3.4.2",

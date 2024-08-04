@@ -3,17 +3,13 @@ import map from "lodash/map";
 import { positions } from "./positions.ts";
 
 export function getAllUsed() {
-  const methodologiesUsed = map(positions, (position) => {
-    return position.methodologiesUsed;
-  })
+  const methodologiesUsed = map(positions, "methodologiesUsed")
     .flat()
     .sort((a, b) => {
       return a.localeCompare(b);
     });
 
-  const techUsed = map(positions, (position) => {
-    return position.techUsed;
-  })
+  const techUsed = map(positions, "techUsed")
     .flat()
     .sort((a, b) => {
       return a.localeCompare(b);

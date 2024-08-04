@@ -1,3 +1,5 @@
+import map from "lodash/map";
+
 import { skillMap } from "./skills.ts";
 
 export const unitFormat = new Intl.ListFormat("en-US", {
@@ -5,13 +7,11 @@ export const unitFormat = new Intl.ListFormat("en-US", {
 });
 
 export const formatTech = (techs: readonly string[]) => {
-  const sorted = [...new Set(techs)]
-    .map((tech) => {
-      return skillMap[tech as keyof typeof skillMap];
-    })
-    .sort((a, b) => {
-      return a.localeCompare(b);
-    });
+  const sorted = map([...new Set(techs)], (tech) => {
+    return skillMap[tech as keyof typeof skillMap];
+  }).sort((a, b) => {
+    return a.localeCompare(b);
+  });
 
   return unitFormat.format(sorted);
 };

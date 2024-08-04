@@ -1,3 +1,4 @@
+// eslint-disable-next-line lodash/import-scope
 import lodash from "lodash";
 import forEach from "lodash/forEach.js";
 import isNil from "lodash/isNil.js";
@@ -224,6 +225,7 @@ export const getExperience = () => {
   });
 
   return (
+    // eslint-disable-next-line lodash/chaining,lodash/collection-method-value
     lodash
       .chain(experience)
       // eslint-disable-next-line unicorn/no-array-for-each

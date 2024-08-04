@@ -1,6 +1,7 @@
 import lodash from "lodash";
 import forEach from "lodash/forEach.js";
 import isNil from "lodash/isNil.js";
+// eslint-disable-next-line barrel/avoid-importing-barrel-files
 import { DateTime } from "luxon";
 
 export const experienceStart = DateTime.fromObject({ month: 11, year: 2018 });

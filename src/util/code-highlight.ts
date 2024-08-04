@@ -1,3 +1,4 @@
+// eslint-disable-next-line barrel/avoid-importing-barrel-files
 import { codeToHtml } from "shiki";
 
 export async function codeHighlight(

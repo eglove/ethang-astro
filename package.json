@@ -24,8 +24,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "^18.0.2",
-    "@ethang/project-builder": "^1.1.52",
+    "@ethang/eslint-config": "^18.1.4",
+    "@ethang/project-builder": "^1.1.53",
     "@types/lodash": "^4.17.7",
     "@types/luxon": "^3.4.2",
     "eslint": "^9.8.0",

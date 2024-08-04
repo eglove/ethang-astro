@@ -1,6 +1,6 @@
 import config from "@ethang/eslint-config/eslint.config.js";
+import configAstro from "@ethang/eslint-config/config.astro.js";
 import tseslint from "typescript-eslint";
-import configAstro from "@ethang/eslint-config-astro";
 
 export default tseslint.config(...config, ...configAstro, {
   ignores: ["dist/"],

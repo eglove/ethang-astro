@@ -12,16 +12,17 @@ const currencyFormatter = new Intl.NumberFormat("en-US", {
   currency: "USD",
 });
 
-const { data } = await ynabClient.budgets.getBudgets();
-const budget = data.budgets.find((item) => item.name === "MyBudget");
-const { data: transactionData } = await ynabClient.transactions.getTransactions(
-  budget?.id ?? "1",
-  DateTime.now().minus({ day: 7 }).toJSDate().toISOString(),
-);
+// const { data } = await ynabClient.budgets.getBudgets();
+// const budget = data.budgets.find((item) => item.name === "MyBudget");
+// const { data: transactionData } = await ynabClient.transactions.getTransactions(
+//   budget?.id ?? "1",
+//   DateTime.now().minus({ day: 7 }).toJSDate().toISOString(),
+// );
 
-const transactions = transactionData.transactions.filter((item) => {
-  return item.category_name !== "Credit Card";
-});
+// const transactions = transactionData.transactions.filter((item) => {
+//   return item.category_name !== "Credit Card";
+// });
+const transactions = [];
 
 let totalExpenses = 0;
 let totalIncome = 0;

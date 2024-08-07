@@ -5,7 +5,10 @@ import isNil from "lodash/isNil.js";
 // eslint-disable-next-line barrel/avoid-importing-barrel-files
 import { DateTime } from "luxon";
 
-export const experienceStart = DateTime.fromObject({ month: 11, year: 2018 });
+export const experienceStart = DateTime.fromObject({
+  month: 11,
+  year: 2018,
+});
 
 export const positions = {
   avatara: {

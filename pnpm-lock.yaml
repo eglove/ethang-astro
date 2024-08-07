@@ -1330,8 +1330,8 @@ packages:
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
 
-  '@mdn/browser-compat-data@5.5.44':
-    resolution: {integrity: sha512-bG2ePe+cjEyZQ9hBB+EzsItnl0hPNs1RLjmRuWX7lS0vJ8ddxTeyoQ8yXkp+DAcprbJ0X65wUCgfjBODCRsB5w==}
+  '@mdn/browser-compat-data@5.5.45':
+    resolution: {integrity: sha512-ZSQFGihUPlFxG2S9sUWS2tjDKQNTVVEgN62Au5yFcnbYsC183T1JrLz6I5H467Hw8WMCjwRuOEFQSpBW6IvZCg==}
 
   '@napi-rs/wasm-runtime@0.2.4':
     resolution: {integrity: sha512-9zESzOO5aDByvhIAsOy9TbpZ0Ur2AJbUI7UT73kcUTS2mxAMHOBaa1st/jAymNoCtvrit99kkzT1FZuXVcgfIQ==}
@@ -1962,8 +1962,8 @@ packages:
     resolution: {integrity: sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==}
     engines: {node: '>=14.16'}
 
-  caniuse-lite@1.0.30001649:
-    resolution: {integrity: sha512-fJegqZZ0ZX8HOWr6rcafGr72+xcgJKI9oWfDW5DrD7ExUtgZC7a7R7ZYmZqplh7XDocFdGeIFn7roAxhOeYrPQ==}
+  caniuse-lite@1.0.30001650:
+    resolution: {integrity: sha512-fgEc7hP/LB7iicdXHUI9VsBsMZmUmlVJeQP2qqQW+3lkqVhbmjEU8zp+h5stWeilX+G7uXuIUIIlWlDw9jdt8g==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -6154,7 +6154,7 @@ snapshots:
 
   '@kwsites/promise-deferred@1.1.1': {}
 
-  '@mdn/browser-compat-data@5.5.44': {}
+  '@mdn/browser-compat-data@5.5.45': {}
 
   '@napi-rs/wasm-runtime@0.2.4':
     dependencies:
@@ -6715,7 +6715,7 @@ snapshots:
 
   ast-metadata-inferer@0.8.0:
     dependencies:
-      '@mdn/browser-compat-data': 5.5.44
+      '@mdn/browser-compat-data': 5.5.45
 
   ast-types-flow@0.0.8: {}
 
@@ -6903,7 +6903,7 @@ snapshots:
 
   browserslist@4.23.3:
     dependencies:
-      caniuse-lite: 1.0.30001649
+      caniuse-lite: 1.0.30001650
       electron-to-chromium: 1.5.4
       node-releases: 2.0.18
       update-browserslist-db: 1.1.0(browserslist@4.23.3)
@@ -6933,7 +6933,7 @@ snapshots:
 
   camelcase@7.0.1: {}
 
-  caniuse-lite@1.0.30001649: {}
+  caniuse-lite@1.0.30001650: {}
 
   ccount@2.0.1: {}
 
@@ -7427,10 +7427,10 @@ snapshots:
 
   eslint-plugin-compat@6.0.0(eslint@9.8.0):
     dependencies:
-      '@mdn/browser-compat-data': 5.5.44
+      '@mdn/browser-compat-data': 5.5.45
       ast-metadata-inferer: 0.8.0
       browserslist: 4.23.3
-      caniuse-lite: 1.0.30001649
+      caniuse-lite: 1.0.30001650
       eslint: 9.8.0
       find-up: 5.0.0
       globals: 15.9.0

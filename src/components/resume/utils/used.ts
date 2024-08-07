@@ -2,7 +2,7 @@ import map from "lodash/map";
 
 import { positions } from "./positions.ts";
 
-export function getAllUsed () {
+export function getAllUsed() {
   const methodologiesUsed = map(positions, "methodologiesUsed")
     .flat()
     .sort((a, b) => {
@@ -18,7 +18,7 @@ export function getAllUsed () {
   return [methodologiesUsed, techUsed];
 }
 
-export function getUsedByPosition (position: keyof typeof positions) {
+export function getUsedByPosition(position: keyof typeof positions) {
   const { methodologiesUsed } = positions[position];
   const { techUsed } = positions[position];
 

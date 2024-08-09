@@ -1,7 +1,6 @@
 import { projectBuilder } from "@ethang/project-builder/project-builder.js";
 
 await projectBuilder("ethang-astro", "main", {
-  preVersionBumpScripts: ["UPDATE"],
-  postVersionBumpScripts: ["DEDUPE", "LINT", "BUILD"],
+  scripts: ["UPDATE", "DEDUPE", "LINT", "BUILD"],
   isLibrary: false,
 });

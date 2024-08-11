@@ -104,6 +104,8 @@ export const positions = {
       "tailwind",
       "htmlCss",
       "reactNative",
+      "solid",
+      "solidStart",
     ],
     title: "Contractor",
   },
@@ -112,6 +114,7 @@ export const positions = {
     methodologiesUsed: ["agile", "onPremHosting", "accessibility"],
     startDate: "Nov 2023",
     techUsed: [
+      "azureAppService",
       "react",
       "nextJs",
       "typeScript",

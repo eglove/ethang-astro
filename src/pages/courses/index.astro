@@ -1,13 +1,11 @@
 ---
 import { DateTime } from "luxon";
 import Layout from "../../layouts/Layout.astro";
+import {experienceStart} from "../../components/resume/utils/positions";
 
 const timezone = "America/Chicago";
-const startDate = DateTime.fromObject({ year: 2018, month: 11 }).setZone(
-  timezone,
-);
 const now = DateTime.now().setZone(timezone);
-const diff = now.diff(startDate, "years");
+const diff = now.diff(experienceStart, "years");
 const formatter = Intl.NumberFormat("en-US", {
   style: "unit",
   unit: "year",

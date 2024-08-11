@@ -5,13 +5,11 @@ import PositionSummary from "../../components/resume/PositionSummary.astro";
 import Certifications from "../../components/resume/Certifications.astro";
 import ProjectSummary from "../../components/resume/ProjectSummary.astro";
 import { DateTime } from "luxon";
+import {experienceStart} from "../../components/resume/utils/positions";
 
 const timezone = "America/Chicago";
-const startDate = DateTime.fromObject({ year: 2018, month: 11 }).setZone(
-  timezone,
-);
-const endDate = DateTime.fromObject({ year: 2024, month: 5 }).setZone(timezone);
-const diff = endDate.diff(startDate, "years");
+const endDate = DateTime.now().setZone(timezone);
+const diff = endDate.diff(experienceStart, "years");
 const formatter = Intl.NumberFormat("en-US", {
   style: "unit",
   unit: "year",

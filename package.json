@@ -13,18 +13,18 @@
   "dependencies": {
     "@astrojs/check": "^0.9.2",
     "@astrojs/partytown": "^2.1.1",
-    "astro": "^4.13.4",
+    "astro": "^4.14.0",
     "astrojs-service-worker": "^2.0.0",
     "lodash": "^4.17.21",
     "luxon": "^3.5.0",
-    "shiki": "^1.12.1",
+    "shiki": "^1.13.0",
     "typescript": "^5.5.4",
     "web-features": "^1.1.0",
     "ynab": "^2.4.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "^18.4.16",
+    "@ethang/eslint-config": "^18.4.17",
     "@ethang/project-builder": "^2.3.9",
     "@types/lodash": "^4.17.7",
     "@types/luxon": "^3.4.2",

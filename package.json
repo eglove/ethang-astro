@@ -24,13 +24,13 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "^18.4.19",
+    "@ethang/eslint-config": "^18.4.20",
     "@ethang/project-builder": "^2.3.9",
     "@types/lodash": "^4.17.7",
     "@types/luxon": "^3.4.2",
     "eslint": "^9.9.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript-eslint": "^8.1.0"
+    "typescript-eslint": "^8.2.0"
   }
 }
